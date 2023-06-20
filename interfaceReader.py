@@ -45,9 +45,12 @@ def get_response():
     pdf_text = extract_text_from_pdf(pdf_file_path)
 
     # Generate responses based on the extracted text and user question
-    prompt = "Read the following text from the PDF. " \
-             "If the question is not answered in this FAQ database, reply that you are not sure and will contact an " \
-             "agent.\n" + pdf_text + question
+    prompt = "Consider the following text from the PDF as the FAQ database:\n" \
+             f"{pdf_text}\n\n" \
+             f"The user question is: \"{question}\"" \
+             "\nIf the question is answered in this FAQ database, provide the answer. " \
+             "If the question is not answered in this FAQ database, reply that you are not" \
+             "sure and will contact an agent."
 
     response = generate_responses(prompt)
     print(response)
