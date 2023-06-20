@@ -37,6 +37,9 @@
             font-size: 2em;
             margin-bottom: 20px;
         }
+        p {
+            text-align: left;
+        }
         input[type="text"] {
             width: 100%;
             padding: 10px;
@@ -66,11 +69,18 @@
     <div class="container">
         <div class="content">
             <h2 class="title">Ask a question</h2>
-            <form action="/getresponse" method="post">
+            <form action="/" method="post">
                 <input type="text" name="question" required placeholder="Enter your question here...">
                 <input type="submit" value="Submit">
             </form>
+            {% if question %}
+                <h2 class="title">Your Question:</h2>
+                <p>{{ question }}</p>
+                <h2 class="title">Generated response:</h2>
+                <p>{{ response }}</p>
+            {% endif %}
         </div>
     </div>
 </body>
 </html>
+
