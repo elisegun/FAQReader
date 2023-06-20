@@ -46,12 +46,12 @@ def get_response():
 
     # Generate responses based on the extracted text and user question
     prompt = "Read the following text from the PDF. " \
-             "If the question is not answered in this FAQ database rely that you are not sure and will contact an " \
+             "If the question is not answered in this FAQ database, reply that you are not sure and will contact an " \
              "agent.\n" + pdf_text + question
 
     response = generate_responses(prompt)
     print(response)
-    return render_template('response.html', response=response)
+    return render_template('response.html', response=response, question=question)
 
 
 if __name__ == '__main__':
