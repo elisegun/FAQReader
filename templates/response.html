@@ -12,15 +12,23 @@
             font-family: Arial, sans-serif;
             background-color: #5CC6C7;
         }
+        .brand {
+            color: white;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
         .container {
             box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.15);
-            padding: 40px;
+            padding: 20px;
             background-color: white;
             border-radius: 8px;
             width: 40%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            max-width: 700px;
+        }
+        .content {
+            width: 70%;
+            margin: 0 auto;
         }
         .title {
             color: #273C49;
@@ -29,11 +37,8 @@
             font-size: 2em;
             margin-bottom: 20px;
         }
-        .brand {
-            color: white;
-            font-family: 'Times New Roman', Times, serif;
-            font-size: 4em;
-            margin-bottom: 20px;
+        p {
+            text-align: left;
         }
         input[type="text"] {
             width: 100%;
@@ -62,15 +67,17 @@
 <body>
     <h1 class="brand">SafetyWing</h1>
     <div class="container">
-        <h2 class="title">Your Question:</h2>
-        <p>{{ question }}</p>
-        <h2 class="title">Generated response:</h2>
-        <p>{{ response }}</p>
-        <h2 class="title">Ask another question</h2>
-        <form action="/getresponse" method="post">
-            <input type="text" name="question" required placeholder="Enter your question here...">
-            <input type="submit" value="Submit">
-        </form>
+        <div class="content">
+            <h2 class="title">Your Question:</h2>
+            <p>{{ question }}</p>
+            <h2 class="title">Generated response:</h2>
+            <p>{{ response }}</p>
+            <h2 class="title">Ask another question</h2>
+            <form action="/getresponse" method="post">
+                <input type="text" name="question" required placeholder="Enter your question here...">
+                <input type="submit" value="Submit">
+            </form>
+        </div>
     </div>
 </body>
 </html>
